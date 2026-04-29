@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>৩ বছরের বন্ধুত্ব - আরিয়ান মামার জন্য</title>
+    <title>৩ বছরের বন্ধুত্ব - আরিয়ান মামা</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Hind+Siliguri:wght@400;700&display=swap');
 
         :root {
-            --primary: #00b894; /* Friendship Green */
-            --glass: rgba(255, 255, 255, 0.9);
-            --shadow: 0 15px 35px rgba(0, 184, 148, 0.3);
+            --friend-color: #00d2d3;
+            --accent: #54a0ff;
         }
 
         body {
-            background: linear-gradient(-45deg, #55efc4, #81ecec, #74b9ff, #a29bfe);
+            background: linear-gradient(135deg, #0fbcf9, #341f97, #1dd1a1);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 12s ease infinite;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -33,93 +32,87 @@
         }
 
         #main-card {
-            text-align: center;
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            padding: 30px;
-            border-radius: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 35px;
+            padding: 40px 20px;
             width: 85%;
-            max-width: 400px;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+            position: relative;
             z-index: 10;
         }
 
         #title {
-            color: #2d3436;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            color: #fff;
+            font-size: 26px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 5px;
         }
 
-        #love-frame {
+        .badge {
+            background: #fff;
+            color: var(--friend-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        #photo-area {
             display: none;
             width: 220px;
             height: 220px;
-            margin: 20px auto;
-            position: relative;
-            border-radius: 20px;
+            margin: 0 auto 20px;
+            border: 6px solid #fff;
+            border-radius: 50%;
             overflow: hidden;
-            border: 5px solid var(--primary);
-            box-shadow: 0 0 20px rgba(0, 184, 148, 0.5);
-            animation: bounceIn 1s;
+            box-shadow: 0 0 25px rgba(255,255,255,0.4);
+            animation: pulse 2s infinite;
         }
 
-        @keyframes bounceIn {
-            0% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.05); opacity: 1; }
-            70% { transform: scale(0.9); }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255,255,255,0); }
             100% { transform: scale(1); }
         }
 
-        #love-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        #photo-area img { width: 100%; height: 100%; object-fit: cover; }
 
-        .cat-gif { 
-            width: 160px; 
-            border-radius: 15px; 
-            margin: 15px 0;
-        }
-
-        .btn-container { 
-            display: flex; 
-            flex-direction: column;
-            gap: 15px; 
-            margin-top: 25px; 
-            align-items: center;
-        }
-
-        .action-btn { 
-            background: var(--primary);
-            color: white;
+        .action-btn {
+            background: #fff;
+            color: #341f97;
             border: none;
-            padding: 12px 30px;
+            padding: 15px 40px;
             font-size: 18px;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .action-btn:hover { transform: translateY(-3px); background: #00a884; }
+        .action-btn:active { transform: scale(0.9); }
 
-        .success-text {
+        .footer-text {
             display: none;
-            color: #2d3436;
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 20px;
+            color: #fff;
+            font-size: 18px;
+            margin-top: 15px;
+            animation: fadeIn 1s;
         }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .confetti {
             position: absolute;
-            width: 10px; height: 10px;
-            animation: fall 3s linear forwards;
             pointer-events: none;
+            animation: fall 3s linear forwards;
+            z-index: 5;
         }
 
         @keyframes fall {
@@ -130,56 +123,61 @@
 <body>
 
 <div id="main-card">
-    <h1 id="title">আরিয়ান মামা! <br> আমাদের বন্ধুত্বের ৩ বছর...</h1>
+    <div class="badge">৩ বছরের গভীর বন্ধুত্ব</div>
+    <h1 id="title">আরিয়ান মামা!</h1>
     
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaHpxeHpxeHpxeHpxeHpxeHpxeHpxeHpxeHpxeHpxeHpxJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l41lM8A5pBAH7U5W0/giphy.gif" 
-         class="cat-gif" id="display-gif">
-
-    <div id="love-frame">
-        <img src="./1000426673.jpg" onerror="this.src='https://via.placeholder.com/200?text=Photo+Error'">
+    <div id="photo-area">
+        <img src="./1000426673.jpg" onerror="this.src='https://via.placeholder.com/220?text=Aryan+Mama'">
     </div>
 
-    <div class="btn-container" id="btns">
-        <button class="action-btn" onclick="celebrate()">সারপ্রাইজটি দেখুন</button>
+    <div id="cta">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaHpxeHpxeHpxeHpxeHpxeHpxeHpxeHpxeHpxeHpxeHpxJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l41lM8A5pBAH7U5W0/giphy.gif" width="120" style="display:block; margin: 0 auto 20px; border-radius: 10px;">
+        <button class="action-btn" onclick="initiate()">সারপ্রাইজটি খুলুন</button>
     </div>
 
-    <p id="success-msg" class="success-text">আরিয়ান মামা, তুমি শুধু মামাই না,<br>তুমি আমার সেরা বন্ধু! 🤝✨</p>
+    <p id="final-msg" class="footer-text">তুমি শুধু মামা নও আরিয়ান,<br>তুমি আমার জীবনের সবচেয়ে বড় ভরসা! 🤝✨</p>
 </div>
 
 <script>
-    function celebrate() {
-        document.getElementById('title').innerText = "Happy 3 Years, Aryan Mama!";
-        document.getElementById('display-gif').style.display = 'none';
-        document.getElementById('btns').style.display = 'none';
-        document.getElementById('love-frame').style.display = 'block';
-        document.getElementById('success-msg').style.display = 'block';
+    function initiate() {
+        // UI Changes
+        document.getElementById('cta').style.display = 'none';
+        document.getElementById('photo-area').style.display = 'block';
+        document.getElementById('final-msg').style.display = 'block';
+        document.getElementById('title').style.color = '#fff';
 
-        setInterval(createConfetti, 100);
-        speak();
+        // Effects
+        setInterval(spawnEmoji, 150);
+        
+        // Voice Logic
+        triggerVoice();
     }
 
-    function speak() {
+    function triggerVoice() {
         const synth = window.speechSynthesis;
         const text = "আসসালামু আলাইকুম আরিয়ান মামা। আমাদের বন্ধুত্বের ৩ বছর পূর্ণ হলো। তুমি আমার জন্য শুধু মামাই নও, তুমি আমার জীবনের সেরা বন্ধু। এই বন্ধুত্ব যেন সারা জীবন টিকে থাকে।";
-        const utter = new SpeechSynthesisUtterance(text);
         
-        utter.lang = 'bn-BD'; 
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'bn-BD';
         utter.rate = 0.9;
-        utter.pitch = 1.0;
+        utter.pitch = 1.1;
 
+        // ব্রাউজারে যদি অন্য ভয়েস প্লে থাকে তা বন্ধ করে এটি শুরু করবে
+        synth.cancel();
         synth.speak(utter);
     }
 
-    function createConfetti() {
-        const c = document.createElement('div');
-        c.classList.add('confetti');
-        c.innerText = ["🤝", "✨", "🔥", "💫", "🌟"][Math.floor(Math.random() * 5)];
-        c.style.left = Math.random() * 100 + "vw";
-        c.style.top = "-5vh";
-        c.style.fontSize = (Math.random() * 20 + 10) + "px";
-        c.style.animationDuration = (Math.random() * 3 + 2) + "s";
-        document.body.appendChild(c);
-        setTimeout(() => c.remove(), 5000);
+    function spawnEmoji() {
+        const emojis = ["🤝", "💙", "✨", "🔥", "⭐"];
+        const div = document.createElement('div');
+        div.classList.add('confetti');
+        div.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        div.style.left = Math.random() * 100 + "vw";
+        div.style.top = "-5vh";
+        div.style.fontSize = Math.random() * 20 + 15 + "px";
+        div.style.animationDuration = Math.random() * 2 + 3 + "s";
+        document.body.appendChild(div);
+        setTimeout(() => div.remove(), 4000);
     }
 </script>
 
